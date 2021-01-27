@@ -18,11 +18,11 @@ body {
 
 .quiz-container {
   border-radius: 50px;
-  /* box-shadow: rgba(240, 46, 170, 0.4) 5px 5px,
-rgba(240, 46, 170, 0.3) 10px 10px,
-rgba(240, 46, 170, 0.2) 15px 15px,
-rgba(240, 46, 170, 0.1) 20px 20px,
-rgba(240, 46, 170, 0.09) 25px 25px;  */
+  box-shadow: rgba(231, 102, 16, 0.4) 5px 5px,
+rgba(231, 102, 16, 0.3) 10px 10px,
+rgba(231, 102, 16, 0.2) 15px 15px,
+rgba(231, 102, 16, 0.1) 20px 20px,
+rgba(231, 102, 16, 0.09) 25px 25px; 
   max-width: 60vw;
   overflow: hidden;
   padding: 25px;
@@ -94,6 +94,11 @@ button:focus {
 
 .quiz-containerDark {
   background-color: #190857d2;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px,
+  rgba(240, 46, 170, 0.3) 10px 10px,
+  rgba(240, 46, 170, 0.2) 15px 15px,
+  rgba(240, 46, 170, 0.1) 20px 20px,
+  rgba(240, 46, 170, 0.09) 25px 25px;
 }
 
 .button-Dark {
