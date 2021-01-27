@@ -23,7 +23,7 @@ rgba(231, 102, 16, 0.3) 10px 10px,
 rgba(231, 102, 16, 0.2) 15px 15px,
 rgba(231, 102, 16, 0.1) 20px 20px,
 rgba(231, 102, 16, 0.09) 25px 25px; 
-  max-width: 60vw;
+  width: 50vw;
   overflow: hidden;
   padding: 25px;
   line-height: 35px;
