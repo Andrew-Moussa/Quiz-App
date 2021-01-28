@@ -8,7 +8,7 @@ const quizData = [
     correct: "d",
   },
   {
-    question: "Which one of these is a JavaScript package manager?",
+    question: "Which one of these is a JS package manager?",
     a: "Node.js",
     b: "TypeScript",
     c: "npm",
@@ -42,7 +42,40 @@ const c_text = document.getElementById("c_text");
 const d_text = document.getElementById("d_text");
 const submitButton = document.getElementById("submit");
 const ulElement = document.querySelector("ul");
-const quizBox = document.getElementById("quizHeader")
+const quizBox = document.getElementById("quizHeader");
+const quizContanier = document.getElementById("quiz")
+const startTimer = document.querySelector('#start-timer')
+const header = document.querySelector(".Header")
+console.log("🚀 ~ file: app.js ~ line 49 ~ header", header)
+const timeLeftDisplay = document.querySelector('#time-left');
+
+//## timer##
+const countDown = () => {
+  let timeLeft = 10;
+  timeLeftDisplay.innerHTML = timeLeft
+  let countDown = setInterval(function () {
+    timeLeft -= 1
+    timeLeftDisplay.innerHTML = timeLeft
+    if (timeLeft === 0) {
+      timeLeft = 0
+      clearInterval(countDown)
+    }
+    // clearInterval(countDown)
+  }, 1000);
+}
+
+// function clearTimer(){
+//   clearInterval(countDown)
+// }
+
+startTimer.addEventListener('click', function () {
+  startTimer.style.display = "none";
+  quizContanier.style.display = "inline-block";
+
+  countDown();
+
+});
+// return countDown()
 
 let currentQuiz = 0;
 let score = 0;
@@ -71,17 +104,28 @@ const loadQuiz = () => {
 
 loadQuiz();
 
+
 submitButton.addEventListener("click", () => {
+  clearInterval(countDown)
+  countDown();
   const answer = getSelected();
   if (answer) {
-    if (answer === quizData[currentQuiz].correct) score++;
+    if (answer === quizData[currentQuiz].correct)
+      score++;
     currentQuiz++;
-    if (currentQuiz < quizData.length) loadQuiz();
-    else {
+    if (currentQuiz < quizData.length) {
+      loadQuiz();
+
+
+    } else if (score == 4) {
       quiz.innerHTML = `
             <h2>You answered ${score}/${quizData.length} questions correctly</h2>
             <button onclick="location.reload()">Reload</button>
         `
+    } else {
+      quiz.innerHTML = `
+            <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+            <button onclick="location.reload()">Reload</button>`
     }
   }
 });
@@ -92,7 +136,7 @@ submitButton.addEventListener("click", () => {
 
 
 
-/// #### dark morde ###
+/// #### dark mode ###
 
 const checkbox = document.getElementById("checkbox");
 checkbox.addEventListener('change', () => {
@@ -102,5 +146,6 @@ checkbox.addEventListener('change', () => {
   ulElement.classList.toggle('ul-Dark');
   quiz.classList.toggle("quiz-containerDark");
   submitButton.classList.toggle("button-Dark");
+  header.classList.toggle("Header-Dark");
 
 })
